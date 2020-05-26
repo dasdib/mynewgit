@@ -1,3 +1,3 @@
 <?php 
-echo "Hello DIbyendu das susmit1";
+echo "Welcome Susmit";
 ?>
