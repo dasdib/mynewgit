@@ -1,5 +1,5 @@
 <?php
-require "../www/classes/RunsToScore.php";
+require "./classes/RunsToScore.php";
 
 class RunsToScoreTest extends PHPUnit_Framework_Testcase
 {
