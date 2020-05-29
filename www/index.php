@@ -9,5 +9,4 @@ $runInstance->setTotalRuns(100);
 $runInstance->RunsToScoreTestCase->scoreRuns(50);
 
 echo $runInstance->getRemainingRuns();
-   
 ?>
