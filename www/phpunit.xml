@@ -11,4 +11,4 @@
 			<directory>www</directory>
 		</testsuite>
 	</testsuites>
-</phpunit>
+</phpunit> 
