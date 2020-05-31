@@ -1,7 +1,9 @@
 <?php
 require "./www/classes/RunsToScore.php";
+declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
 
-class RunsToScoreTest extends PHPUnit_Framework_Testcase
+final class RunsToScoreTest extends TestCase
 {
 	
 	public $RunsToScoreTestCase;
