@@ -8,7 +8,7 @@
 		 
 	<testsuites>
 		<testsuite name="New Test Suite">
-			<directory>www</directory>
+			<directory>./</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>   
