@@ -3,7 +3,6 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 require "./www/classes/RunsToScore.php";
 
-
 final class RunsToScoreTest extends TestCase
 {
 	
@@ -13,8 +12,7 @@ final class RunsToScoreTest extends TestCase
 	{
 		
 		$this->RunsToScoreTestCase = new ScoreBoardStats();
-	}
-	
+	}	
 	public function testCaseCheck(){
 		
 		// Total run to score 100
@@ -24,7 +22,7 @@ final class RunsToScoreTest extends TestCase
 		$this->RunsToScoreTestCase->scoreRuns(50);
 		
 		// check if remaining run is 50 after Virat scores 50
-		$this->assertEquals(50, $this->RunsToScoreTestCase->getRemainingRuns());	
+		$this->assertEquals(51, $this->RunsToScoreTestCase->getRemainingRuns());	
 		
 	} 
 }
