@@ -22,6 +22,6 @@ class RunsToScoreTest extends PHPUnit_Framework_Testcase
 		// check if remaining run is 50 after Virat scores 50
 		$this->assertEquals(50, $this->RunsToScoreTestCase->getRemainingRuns());	
 		
-	}
+	} 
 }
 ?>
