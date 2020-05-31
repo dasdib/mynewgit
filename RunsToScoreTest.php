@@ -9,7 +9,8 @@ final class RunsToScoreTest extends TestCase
 	
 	public $RunsToScoreTestCase;
 	
-	public function setUp(){
+	public function setUp(): void
+	{
 		
 		$this->RunsToScoreTestCase = new ScoreBoardStats();
 	}
