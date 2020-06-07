@@ -6,7 +6,7 @@ $runInstance =  new ScoreBoardStats();
 $runInstance->setTotalRuns(100);
 
 // Virat scores 50
-$runInstance->scoreRuns(38);  
+$runInstance->scoreRuns(35);  
 
 echo "Runs Remaining ".$runInstance->getRemainingRuns();
 ?>
