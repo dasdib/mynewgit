@@ -20,11 +20,7 @@
 						sh label: '', script: 'phpunit --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml --coverage-html=reports -c phpunit.xml'
 					}
 				} 
-				stage('CloverPublisher Reporting'){	 	
-					steps{
-						
-					}
-				}				
+								
 				stage('JUnit Reporting'){
 					steps{
 						echo 'start JUnit reporting'
