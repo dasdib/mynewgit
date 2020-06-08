@@ -15,7 +15,7 @@
 				stage('PHPUnit test'){
 					steps{
 						echo "Running PHPUnit Test"
-						sh label: '', script: 'phpunit8 --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml --coverage-html reports/ -c phpunit.xml'
+						sh label: '', script: 'phpunit8 --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml -c phpunit.xml'
 					}
 				}
 				stage('JUnit Reporting'){
