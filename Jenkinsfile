@@ -25,13 +25,13 @@
 				}
 			}            
         }
-		stage('JUnit Reporting & AWS Deployment'){
+		stage('JUnit Reporting'){
 			steps{
 				echo 'start JUnit reporting'
 				step([$class: 'JUnitResultArchiver', testResults: 'results/phpunit/phpunit.xml'])
 			}	
 		}		
-		stage('PHPUnit test'){	
+		stage('AWS Deployment'){	
 			steps{
 			echo 'start deploying'
 				step([$class: 'AWSCodeDeployPublisher', applicationName: 'DeliveryPipeline', awsAccessKey: '', awsSecretKey: '', deploymentConfig: 'CodeDeployDefault.OneAtATime', deploymentGroupAppspec: false, deploymentGroupName: 'CodeDeployGroup', excludes: '', iamRoleArn: '', includes: '**', proxyHost: '', proxyPort: 0, region: 'us-east-2', s3bucket: 'cicds3', s3prefix: 'deploy', subdirectory: '', versionFileName: '', waitForCompletion: false])
