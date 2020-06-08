@@ -22,7 +22,7 @@ final class RunsToScoreTest extends TestCase
 		$this->RunsToScoreTestCase->scoreRuns(50);
 		
 		// check if remaining run is 50 after Virat scores 50
-		$this->assertEquals(50, $this->RunsToScoreTestCase->getRemainingRuns());	
+		$this->assertEquals(20, $this->RunsToScoreTestCase->getRemainingRuns());	
 		
 	} 
 }
