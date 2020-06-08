@@ -21,7 +21,8 @@
 				stage('SonarQube test'){
 					steps{
 						echo "Star sonar scanner"
-						
+						sh 'sonar-scanner -Dsonar.projectKey=sonarqube -Dsonar.projectName=SonarQube -Dsonar.projectVersion=1.0 -Dsonar.sources=www'
+						echo 'http://3.128.22.92/dashboard?id=sonarqube'
 					}
 				}
 			}            
