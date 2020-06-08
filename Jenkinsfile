@@ -15,13 +15,15 @@
 				stage('PHPUnit test'){
 					steps{
 						echo "Running PHPUnit Test"
-						//sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/unitreport.xml'
-						//sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/coverage.xml'
+						sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/unitreport.xml'
+						sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/coverage.xml'
+						sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports'
 						sh label: '', script: 'phpunit8 --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml --coverage-html=reports -c phpunit.xml'
 					}
 				} 
 				stage('CloverPublisher Reporting'){	 	
 					steps{
+						sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports'
 						sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/coverage.xml'
 						step([
 								$class: 'CloverPublisher',
