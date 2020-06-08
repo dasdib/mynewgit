@@ -19,7 +19,7 @@
 						sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/coverage.xml'
 						sh label: '', script: 'phpunit --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml -c phpunit.xml'
 					}
-				}
+				} 
 				stage('JUnit Reporting'){
 					steps{
 						echo 'start JUnit reporting'
