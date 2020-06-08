@@ -20,7 +20,9 @@
 				}
 				stage('SonarQube test'){
 					steps{
-						echo "Need to work"
+						echo "Star sonar scanner"
+						sh 'sonar-scanner -Dsonar.projectKey=sonarqube -Dsonar.projectName=SonarQube -Dsonar.projectVersion=1.0 -Dsonar.sources=www'
+						echo 'http://3.128.22.92/dashboard?id=sonarqube'
 					}
 				}
 			}            
@@ -33,7 +35,8 @@
 		}		
 		stage('AWS Deployment'){	
 			steps{
-			echo 'start deploying'
+				echo 'start deploying'
+				input 'Do you want to procced for Deployment?'
 				step([$class: 'AWSCodeDeployPublisher', applicationName: 'DeliveryPipeline', awsAccessKey: '', awsSecretKey: '', deploymentConfig: 'CodeDeployDefault.OneAtATime', deploymentGroupAppspec: false, deploymentGroupName: 'CodeDeployGroup', excludes: '', iamRoleArn: '', includes: '**', proxyHost: '', proxyPort: 0, region: 'us-east-2', s3bucket: 'cicds3', s3prefix: 'deploy', subdirectory: '', versionFileName: '', waitForCompletion: false])
 			}		
 		}
