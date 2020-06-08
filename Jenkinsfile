@@ -53,7 +53,7 @@
 		}
 		always {
 		  echo '... clean workspace when done'
-		  cleanWs()
+		  //cleanWs()
 		}
 	}
 }
