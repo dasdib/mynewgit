@@ -20,29 +20,34 @@
 				}
 				stage('SonarQube test'){
 					steps{
-						echo "Running PHPUnit Test"
+						echo "Need to work"
 					}
 				}
 			}            
         }
-        post {
-            always{
+		stage('Deploy & Reporting'){
+            stage('JUnit Reporting'){
 					step([$class: 'JUnitResultArchiver', testResults: 'results/phpunit/phpunit.xml'])
 				}
-			failure {
-					mail to: 'ddas446@its.jnj.com',
-					subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-					body: "Something is wrong with ${env.BUILD_URL}"
-				}
-			success {
+			stage('JUnit Reporting'){
 				step([$class: 'AWSCodeDeployPublisher', applicationName: 'DeliveryPipeline', awsAccessKey: '', awsSecretKey: '', deploymentConfig: 'CodeDeployDefault.OneAtATime', deploymentGroupAppspec: false, deploymentGroupName: 'CodeDeployGroup', excludes: '', iamRoleArn: '', includes: '**', proxyHost: '', proxyPort: 0, region: 'us-east-2', s3bucket: 'cicds3', s3prefix: 'deploy', subdirectory: '', versionFileName: '', waitForCompletion: false])
 				
 			}
-			cleanup{
-				cleanWs()
-			}			
 		}
-
-       
-    }
+		post {
+			success {
+			  echo "Success"
+			}
+			failure {
+			   echo "failure"
+			}
+			aborted {
+			  echo "aborted"
+			}
+			always {
+			  echo '... clean workspace when done'
+			  cleanWs()
+			}
+		}
+  }
 }
