@@ -15,7 +15,7 @@
 				stage('PHPUnit test'){
 					steps{
 						echo "Running PHPUnit Test"
-						sh label: '', script: 'phpunit8 --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml -c phpunit.xml'
+						sh label: '', script: 'phpunit --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml -c phpunit.xml'
 					}
 				}
 				stage('JUnit Reporting'){
@@ -28,7 +28,7 @@
 				stage('SonarQube test'){
 					steps{
 						echo "Star sonar scanner"
-						sh '/opt/sonar_scanner/bin/sonar-scanner -Dsonar.projectKey=sonarqube -Dsonar.projectName=SonarQube -Dsonar.projectVersion=1.0 -Dsonar.sources=/var/lib/jenkins/workspace/CICDPipeline/www'
+						sh '/opt/sonar_scanner/bin/sonar-scanner -Dsonar.projectKey=sonarqube -Dsonar.projectName=SonarQube -Dsonar.projectVersion=1.0 -Dsonar.sources=/var/lib/jenkins/workspace/CICDPipeline/www' 
 						
 						echo 'http://3.128.22.92/dashboard?id=sonarqube'
 					}
