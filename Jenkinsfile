@@ -18,6 +18,12 @@
 						sh label: '', script: 'phpunit8 --log-junit results/phpunit/phpunit.xml -c phpunit.xml'
 					}
 				}
+				stage('JUnit Reporting'){
+					steps{
+						echo 'start JUnit reporting'
+						step([$class: 'JUnitResultArchiver', testResults: 'results/phpunit/phpunit.xml'])
+					}	
+				}		
 				stage('SonarQube test'){
 					steps{
 						echo "Star sonar scanner"
@@ -27,12 +33,6 @@
 				}
 			}            
         }
-		stage('JUnit Reporting'){
-			steps{
-				echo 'start JUnit reporting'
-				step([$class: 'JUnitResultArchiver', testResults: 'results/phpunit/phpunit.xml'])
-			}	
-		}		
 		stage('AWS Deployment'){	
 			steps{
 				echo 'start deploying'
