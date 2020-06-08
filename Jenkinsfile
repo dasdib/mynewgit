@@ -21,7 +21,7 @@
 					}
 				} 
 				stage('CloverPublisher Reporting'){		
-					step([
+					steps([
 							$class: 'CloverPublisher',
 							cloverReportDir: '/var/lib/jenkins/workspace/MyCICD/reports/',
 							cloverReportFileName: 'coverage.xml',
