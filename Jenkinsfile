@@ -21,14 +21,14 @@
 				stage('JUnit Reporting'){
 					steps{
 						echo 'start JUnit reporting'
-						//sh 'chmod +rwx /var/lib/jenkins/workspace/CICDPipeline/reports/unitreport.xml'
+						//sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/unitreport.xml'
 						//step([$class: 'JUnitResultArchiver', testResults: 'reports/unitreport.xml']) 
 					}	
 				}		
 				stage('SonarQube test'){
 					steps{
 						echo "Star sonar scanner"
-						sh '/opt/sonar_scanner/bin/sonar-scanner -Dsonar.projectKey=sonarqube -Dsonar.projectName=SonarQube -Dsonar.projectVersion=1.0 -Dsonar.sources=/var/lib/jenkins/workspace/CICDPipeline/www' 
+						sh '/opt/sonar_scanner/bin/sonar-scanner -Dsonar.projectKey=sonarqube -Dsonar.projectName=SonarQube -Dsonar.projectVersion=1.0 -Dsonar.sources=/var/lib/jenkins/workspace/MyCICD/www' 
 						
 						echo 'http://3.128.22.92/dashboard?id=sonarqube'
 					}
