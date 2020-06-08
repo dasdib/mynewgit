@@ -16,17 +16,19 @@
 					steps{
 						echo "Running PHPUnit Test"
 						//sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/unitreport.xml'
-						sh label: '', script: 'phpunit --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml --coverage-html=reports -c phpunit.xml '
+						sh label: '', script: 'phpunit --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml --coverage-html=reports -c phpunit.xml'
 						
 					}
+				}
+				stage('CloverPublisher Reporting'){		
 					step([
-						$class: 'CloverPublisher',
-						cloverReportDir: '/var/lib/jenkins/workspace/MyCICD/reports/',
-						cloverReportFileName: 'coverage.xml',
-						healthyTarget: [methodCoverage: 70, conditionalCoverage: 80, statementCoverage: 80],
-						unhealthyTarget: [methodCoverage: 50, conditionalCoverage: 50, statementCoverage: 50],
-						failingTarget: [methodCoverage: 0, conditionalCoverage: 0, statementCoverage: 0]
-					])
+							$class: 'CloverPublisher',
+							cloverReportDir: '/var/lib/jenkins/workspace/MyCICD/reports/',
+							cloverReportFileName: 'coverage.xml',
+							healthyTarget: [methodCoverage: 70, conditionalCoverage: 80, statementCoverage: 80],
+							unhealthyTarget: [methodCoverage: 50, conditionalCoverage: 50, statementCoverage: 50],
+							failingTarget: [methodCoverage: 0, conditionalCoverage: 0, statementCoverage: 0]
+						])
 				}
 				stage('JUnit Reporting'){
 					steps{
