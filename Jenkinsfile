@@ -17,7 +17,7 @@
 						echo "Running PHPUnit Test"
 						//sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/unitreport.xml'
 						//sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/coverage.xml'
-						sh label: '', script: 'phpunit --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml --coverage-html=reports -c phpunit.xml'
+						sh label: '', script: 'phpunit8 --log-junit reports/unitreport.xml -c phpunit.xml'
 					}
 				} 
 								
