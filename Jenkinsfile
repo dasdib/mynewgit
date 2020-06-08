@@ -42,7 +42,7 @@
 		stage('AWS Deployment'){	
 			steps{
 				echo 'start deploying'
-				input 'Do you want to procced for Deployment?'
+				//input 'Do you want to procced for Deployment?'
 				step([$class: 'AWSCodeDeployPublisher', applicationName: 'DeliveryPipeline', awsAccessKey: '', awsSecretKey: '', deploymentConfig: 'CodeDeployDefault.OneAtATime', deploymentGroupAppspec: false, deploymentGroupName: 'CodeDeployGroup', excludes: '', iamRoleArn: '', includes: '**', proxyHost: '', proxyPort: 0, region: 'us-east-2', s3bucket: 'cicds3', s3prefix: 'deploy', subdirectory: '', versionFileName: '', waitForCompletion: false])
 			}		
 		}
