@@ -25,14 +25,12 @@
 				}
 			}            
         }
-		stage('Deploy & Reporting'){
-            stage('JUnit Reporting'){
+		stage('JUnit Reporting'){
 					step([$class: 'JUnitResultArchiver', testResults: 'results/phpunit/phpunit.xml'])
-				}
-			stage('JUnit Reporting'){
-				step([$class: 'AWSCodeDeployPublisher', applicationName: 'DeliveryPipeline', awsAccessKey: '', awsSecretKey: '', deploymentConfig: 'CodeDeployDefault.OneAtATime', deploymentGroupAppspec: false, deploymentGroupName: 'CodeDeployGroup', excludes: '', iamRoleArn: '', includes: '**', proxyHost: '', proxyPort: 0, region: 'us-east-2', s3bucket: 'cicds3', s3prefix: 'deploy', subdirectory: '', versionFileName: '', waitForCompletion: false])
-				
-			}
+		}
+		stage('AWS Deployment'){
+			step([$class: 'AWSCodeDeployPublisher', applicationName: 'DeliveryPipeline', awsAccessKey: '', awsSecretKey: '', deploymentConfig: 'CodeDeployDefault.OneAtATime', deploymentGroupAppspec: false, deploymentGroupName: 'CodeDeployGroup', excludes: '', iamRoleArn: '', includes: '**', proxyHost: '', proxyPort: 0, region: 'us-east-2', s3bucket: 'cicds3', s3prefix: 'deploy', subdirectory: '', versionFileName: '', waitForCompletion: false])
+			
 		}
 		post {
 			success {
@@ -49,5 +47,5 @@
 			  cleanWs()
 			}
 		}
-  }
+	}
 }
