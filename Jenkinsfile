@@ -15,14 +15,15 @@
 				stage('PHPUnit test'){
 					steps{
 						echo "Running PHPUnit Test"
-						sh label: '', script: 'phpunit8 --log-junit results/phpunit/phpunit.xml -c phpunit.xml'
+						sh label: '', script: 'phpunit8 --log-junit /var/lib/jenkins/workspace/CICDPipeline/results/phpunit/phpunit.xml -c phpunit.xml'
 					}
 				}
 				stage('JUnit Reporting'){
 					steps{
 						echo 'start JUnit reporting'
 						sh 'chmod +x /var/lib/jenkins/workspace/CICDPipeline/results/phpunit/phpunit.xml'
-						step([$class: 'JUnitResultArchiver', testResults: 'results/phpunit/phpunit.xml'])
+						junit '/var/lib/jenkins/workspace/CICDPipeline/results/phpunit/phpunit.xml'
+						step([$class: 'JUnitResultArchiver', testResults: '/var/lib/jenkins/workspace/CICDPipeline/results/phpunit/phpunit.xml'])
 					}	
 				}		
 				stage('SonarQube test'){
