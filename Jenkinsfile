@@ -24,7 +24,7 @@
 					steps{
 						echo 'start JUnit reporting'
 						//sh 'chmod +rwx /var/lib/jenkins/workspace/MyCICD/reports/unitreport.xml'
-						//step([$class: 'JUnitResultArchiver', testResults: 'reports/unitreport.xml'])  
+						//step([$class: 'JUnitResultArchiver', testResults: 'reports/unitreport.xml'])   
 					}	
 				}		
 				stage('SonarQube test'){
