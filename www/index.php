@@ -6,7 +6,7 @@ require "classes/RunsToScore.php";
 $runInstance->setTotalRuns(100);
 
 // Virat scores 50
-	$runInstance->scoreRuns(25);  
+	$runInstance->scoreRuns(27);  
 
 echo "Runs Remaining ".$runInstance->getRemainingRuns();
 ?>
