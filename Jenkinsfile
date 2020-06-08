@@ -21,6 +21,7 @@
 				stage('JUnit Reporting'){
 					steps{
 						echo 'start JUnit reporting'
+						sh 'chmod +x /var/lib/jenkins/workspace/CICDPipeline/results/phpunit/phpunit.xml'
 						step([$class: 'JUnitResultArchiver', testResults: 'results/phpunit/phpunit.xml'])
 					}	
 				}		
