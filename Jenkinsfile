@@ -20,7 +20,7 @@
 						sh label: '', script: 'phpunit --log-junit reports/unitreport.xml --coverage-clover reports/coverage.xml --coverage-html=reports -c phpunit.xml'
 					}
 				} 
-				stage('CloverPublisher Reporting'){		
+				stage('CloverPublisher Reporting'){	 	
 					steps([
 							$class: 'CloverPublisher',
 							cloverReportDir: '/var/lib/jenkins/workspace/MyCICD/reports/',
